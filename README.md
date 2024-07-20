@@ -1,5 +1,3 @@
-
-
 # LoqoAi Product Finder
 
 ## Overview
@@ -21,6 +19,7 @@
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
+- [Testing](#testing)
 
 ## Installation
 
@@ -33,7 +32,7 @@
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/product-finder.git
+git clone https://github.com/akhtaransari/product-finder.git
 cd product-finder
 ```
 
@@ -90,71 +89,16 @@ Once the application is running, you can access it at `http://localhost:8080`.
   ```http
   GET /products?sortField=price&sortOrder=asc
   ```
-- **Filter Products by Category ,Price, Price in Ascending Order, Get All Products**
- ```http
- GET /products?category=electronics&minPrice=100&maxPrice=1000&inStock=true&sortField=price&sortOrder=asc
-  ```
-## API Endpoints
 
-### Product API
-
-- **Get All Products**
+- **Filter Products by Category, Price, and Sort Order**
 
   ```http
-  GET /products
-  ```
-
-- **Get Product by ID**
-
-  ```http
-  GET /products/{id}
-  ```
-
-- **Create a New Product**
-
-  ```http
-  POST /products
-  ```
-
-  **Request Body:**
-
-  ```json
-  {
-    "category": "Electronics",
-    "name": "Smartphone",
-    "price": 299.99,
-    "rating": 4.5,
-    "inStock": true
-  }
-  ```
-
-- **Update a Product**
-
-  ```http
-  PUT /products/{id}
-  ```
-
-  **Request Body:**
-
-  ```json
-  {
-    "category": "Electronics",
-    "name": "Smartphone",
-    "price": 279.99,
-    "rating": 4.6,
-    "inStock": true
-  }
-  ```
-
-- **Delete a Product**
-
-  ```http
-  DELETE /products/{id}
+  GET /products?category=electronics&minPrice=100&maxPrice=1000&inStock=true&sortField=price&sortOrder=asc
   ```
 
 ## Configuration
 
-Configure your application properties in `src/main/resources/application.properties`. 
+Configure your application properties in `src/main/resources/application.properties`.
 
 Example configuration for MySQL:
 
@@ -178,3 +122,19 @@ Contributions are welcome! Please follow these steps to contribute:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Testing
+
+The application includes unit tests to ensure functionality. 
+
+### Test Case Explanation
+
+The provided test case focuses on the `ProductServiceIMPL` service. Here’s an overview:
+
+- **Setup**: Before each test, the repository is cleared to ensure a clean test environment.
+- **Test Case**: The `testGetFilteredProducts` method tests the filtering and sorting functionality of the `getFilteredProducts` method.
+  - **Setup Test Data**: Two `Product` instances are created and saved to the repository.
+  - **Invoke Method**: The `getFilteredProducts` method is called with specific parameters for category, price range, and sort order.
+  - **Assertions**: The results are checked to ensure the correct products are returned and sorted as expected.
+
+This test ensures that the `ProductServiceIMPL` service correctly filters and sorts products based on the provided criteria.
