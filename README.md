@@ -1,4 +1,3 @@
-```markdown
 # LoqoAi Product Finder
 
 ## Overview
