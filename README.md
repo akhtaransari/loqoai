@@ -1,3 +1,4 @@
+```markdown
 # LoqoAi Product Finder
 
 ## Overview
@@ -72,10 +73,60 @@ Once the application is running, you can access it at `http://localhost:8080`.
   GET /products
   ```
 
+  **Response:**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 299.99,
+      "inStock": true,
+      "rating": 4.5,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 899.99,
+      "inStock": true,
+      "rating": 4.7,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    }
+  ]
+  ```
+
 - **Filter Products by Category**
 
   ```http
   GET /products?category=Electronics
+  ```
+
+  **Response:**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 299.99,
+      "inStock": true,
+      "rating": 4.5,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 899.99,
+      "inStock": true,
+      "rating": 4.7,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    }
+  ]
   ```
 
 - **Filter Products by Price Range**
@@ -84,10 +135,60 @@ Once the application is running, you can access it at `http://localhost:8080`.
   GET /products?minPrice=100&maxPrice=1000
   ```
 
+  **Response:**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 299.99,
+      "inStock": true,
+      "rating": 4.5,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 899.99,
+      "inStock": true,
+      "rating": 4.7,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    }
+  ]
+  ```
+
 - **Sort Products by Price in Ascending Order**
 
   ```http
   GET /products?sortField=price&sortOrder=asc
+  ```
+
+  **Response:**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 299.99,
+      "inStock": true,
+      "rating": 4.5,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 899.99,
+      "inStock": true,
+      "rating": 4.7,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    }
+  ]
   ```
 
 - **Filter Products by Category, Price, and Sort Order**
@@ -95,6 +196,33 @@ Once the application is running, you can access it at `http://localhost:8080`.
   ```http
   GET /products?category=electronics&minPrice=100&maxPrice=1000&inStock=true&sortField=price&sortOrder=asc
   ```
+
+  **Response:**
+
+  ```json
+  [
+    {
+      "id": 1,
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 299.99,
+      "inStock": true,
+      "rating": 4.5,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    },
+    {
+      "id": 2,
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 899.99,
+      "inStock": true,
+      "rating": 4.7,
+      "createdAt": "2023-01-01T00:00:00.000+00:00"
+    }
+  ]
+  ```
+
+---
 
 ## Configuration
 
@@ -125,7 +253,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Testing
 
-The application includes unit tests to ensure functionality. 
+The application includes unit tests to ensure functionality.
 
 ### Test Case Explanation
 
